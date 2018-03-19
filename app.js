@@ -8,6 +8,8 @@ var time = document.querySelector('.time span')
 var gameOver = document.querySelector('#game-over')
 var button = document.querySelector('.button')
 var count = 0
+
+var number
 count = time.textContent
 var change_country = pays
 
@@ -38,11 +40,13 @@ btn.addEventListener('click', function() {
   window.setInterval(set, 1000)
 
 })
-
+var change = []
 for (var i = 0; i < flag.length; i++) {
-  flag[i].setAttribute('src', "flags/" + flags[Math.floor(Math.random() * flags.length)].code + ".svg"), change_country.innerHTML = flags[Math.floor(Math.random() * flags.length)].name
 
-
+  number = Math.floor(Math.random() * flags.length)
+  change.push(flags[number].name)
+  flag[i].setAttribute('src', "flags/" + flags[number].code + ".svg")
 
 
 }
+pays.innerHTML = change[Math.floor(Math.random() * change.length)]
